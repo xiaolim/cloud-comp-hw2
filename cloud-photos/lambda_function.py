@@ -42,10 +42,10 @@ def lambda_handler(event, context):
             'labels': labels,
         }
         
-        print('this is my url', url)
-        print('this is my awsauth', awsauth)
-        print('this is my document',document)
-        print('this is my headers', headers)
+        # print('this is my url', url)
+        # print('this is my awsauth', awsauth)
+        # print('this is my document',document)
+        # print('this is my headers', headers)
 
         r = requests.post(url, auth=awsauth, json=document, headers=headers)
         print("request API response", r.text)

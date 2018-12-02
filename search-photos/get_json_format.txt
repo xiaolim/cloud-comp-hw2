@@ -1,0 +1,38 @@
+{
+	"took":5,
+	"timed_out":false,"
+	_shards": {
+		"total":5,
+		"successful":5,
+		"skipped":0,
+		"failed":0
+	},
+	"hits": {
+		"total":4,
+		"max_score":0.2876821,
+		"hits":	[
+			{
+				"_index":"photos",
+				"_type":"image",
+				"_id":"wRbLa2cBW6isHUOt1IyY",
+				"_score":0.2876821,
+				"_source": {
+					"objectKey": "IMGP6857.JPG", 
+					"bucket": "photos-homework2", 
+					"createdTimestamp": "2018-12-01T22:02:53.258Z", 
+					"labels": ["Apparel", "Clothing", "Human", "Person", "Sweater", "Pants", "Sleeve", "Coat", "Outdoors", "Nature", "Field", "Grass", "Plant", "Overcoat", "Sweatshirt", "Countryside", "Footwear", "Boot"]
+				}
+			},
+			{
+				"_index":"photos",
+				"_type":"image",
+				"_id":"xBbtb2cBW6isHUOtsYwC",
+				"_score":0.2876821,
+				"_source":{
+					"objectKey": "Xiao_and_Dad.jpg", 
+					"bucket": "photos-homework2", 
+					"createdTimestamp": "2018-12-02T17:18:25.566Z", 
+					"labels": ["Glasses", "Accessories", "Accessory", "Person", "Human", "Face", "Apparel", "Clothing", "Head", "Hat", "Smile", "Cap", "Finger", "Portrait", "Photography", "Photo", "Lip", "Mouth", "Baseball Cap", "Outdoors", "Ear"]
+				}
+			},
+			{"_index":"photos","_type":"image","_id":"whbOa2cBW6isHUOt2Iyk","_score":0.19009832,"_source":{"objectKey": "IMGP6857.JPG", "bucket": "photos-homework2", "createdTimestamp": "2018-12-01T22:02:53.258Z", "labels": ["Clothing", "Apparel", "Human", "Person", "Sweater", "Pants", "Sleeve", "Coat", "Outdoors", "Nature", "Field", "Plant", "Grass", "Overcoat", "Sweatshirt", "Countryside", "Footwear", "Boot"]}},{"_index":"photos","_type":"image","_id":"wxYSbWcBW6isHUOtaYwG","_score":0.1751561,"_source":{"objectKey": "Xiao_and_Dad.jpg", "bucket": "photos-homework2", "createdTimestamp": "2018-12-02T03:59:41.158Z", "labels": ["Accessory", "Accessories", "Glasses", "Person", "Face", "Human", "Clothing", "Apparel", "Head", "Hat", "Smile", "Cap", "Finger", "Photography", "Portrait", "Photo", "Mouth", "Lip", "Baseball Cap", "Outdoors", "Ear"]}}]}}
