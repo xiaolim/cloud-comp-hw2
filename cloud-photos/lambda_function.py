@@ -19,15 +19,20 @@ s3 = boto3.client('s3')
 
 # Lambda execution starts here
 def lambda_handler(event, context):
+    print(event)
     for record in event['Records']:
-
+        print("HELLO")
         # Get the bucket name and key for the new file
         bucket = record['s3']['bucket']['name']
         key = record['s3']['object']['key']
+        
+        print("bucket", bucket)
+        print("key", key)
 
         client=boto3.client('rekognition')
 
         response = client.detect_labels(Image={'S3Object':{'Bucket':bucket,'Name':key}})
+        print("rekognition response", response.text)
 
         print('Detected labels for ' + key)    
         labels = []
@@ -42,10 +47,10 @@ def lambda_handler(event, context):
             'labels': labels,
         }
         
-        # print('this is my url', url)
-        # print('this is my awsauth', awsauth)
-        # print('this is my document',document)
-        # print('this is my headers', headers)
+        print('this is my url', url)
+        print('this is my awsauth', awsauth)
+        print('this is my document',document)
+        print('this is my headers', headers)
 
         r = requests.post(url, auth=awsauth, json=document, headers=headers)
         print("request API response", r.text)
