@@ -1,8 +1,9 @@
 import boto3
 import requests
-import botocore.response
+import botocore.response as br
 from requests_aws4auth import AWS4Auth
 import json
+import base64
 
 region = 'us-east-1' # e.g. us-west-1
 service = 'es'
@@ -51,11 +52,13 @@ def lambda_handler(event, context):
                 images.append(item['_source']['objectKey'])
     print("image list", images)
 
+    return images
+    """
     print("contents of s3")    
     for key in s3.list_objects(Bucket='photos-homework2')['Contents']:
         print(key['Key'])
 
-    binary = []
+    body_list = []
     for image in images:
         
         response = s3.get_object(
@@ -63,11 +66,25 @@ def lambda_handler(event, context):
             Key = image,
         )
         print("s3 response", response)
-        body_response = response['Body'].read()
-        binary.append(body_response)
+        body_response = response['Body']
+        streaming_obj = br.StreamingBody(raw_stream=body_response, content_length=response['ContentLength'])
+        # streaming_obj.read(amt=None)
 
-    print(binary)
-    return binary
+        string_data = streaming_obj.read() #.decode('base64')
+        # print("string data", string_data)
+        # encoded = base64.b64encode(string_data)
+        # ret = {
+        #     "statusCode": 200,
+        #     "body": response['Body'],
+        #     "isBase64Encoded": False
+        # }
+
+        
+        body_list.append(string_data)
+
+    # print(body_list)
+    return body_list
+    """
         
 
 

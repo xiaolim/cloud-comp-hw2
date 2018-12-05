@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         client=boto3.client('rekognition')
 
         response = client.detect_labels(Image={'S3Object':{'Bucket':bucket,'Name':key}})
-        print("rekognition response", response.text)
+        print("rekognition response", response)
 
         print('Detected labels for ' + key)    
         labels = []
